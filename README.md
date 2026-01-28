@@ -47,6 +47,11 @@ pip install -r requirements.txt
 
 - `pydub`
 
+Se o seu Python não incluir o módulo `audioop` (algumas builds no Windows), instale a versão compatível:
+```powershell
+pip install audioop-lts
+```
+
 **4) Instalar FFmpeg e adicionar ao PATH (Windows)**
 - Baixe uma build estática (ex.: https://www.gyan.dev/ffmpeg/builds/).
 - Extraia, por exemplo, em `C:\ffmpeg` de modo que exista `C:\ffmpeg\bin\ffmpeg.exe`.
