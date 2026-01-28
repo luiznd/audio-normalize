@@ -1,0 +1,17 @@
+# Virtual env
+.venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+dist/
+build/
+
+# Local audio outputs (don't commit large generated files)
+/C3PO_Camil_ACDC_Melhorado.mp3
+
+# OS files
+Thumbs.db
+.DS_Store
