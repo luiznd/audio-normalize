@@ -71,6 +71,18 @@ Opções úteis:
 - `--gain N` — aplicar ganho em dB em vez de normalizar.
 - `--normalize` — forçar normalização (padrão se `--gain` não for usado).
 
+Exemplo — converter todos os arquivos de uma pasta
+-----------------------------------------------
+Converter todos os MP3s de uma pasta e salvar em outra pasta, aplicando EBU R128 (-14 LUFS):
+```powershell
+python normalize.py --input-dir "C:\Users\nando\OneDrive\Documents\sons-C3po\novo" -o "D:\c3po\sons" --exts mp3 --loudness -14
+```
+Aplicar ganho fixo (+6 dB) em lote:
+```powershell
+python normalize.py --input-dir "C:\Users\nando\OneDrive\Documents\sons-C3po\novo" -o "D:\c3po\sons" --exts mp3 --gain 6
+```
+
+
 Se o `pydub` não localizar o `ffmpeg`, defina explicitamente no script (ex.: no topo de `normalize.py`):
 ```python
 from pydub import AudioSegment
