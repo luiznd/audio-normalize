@@ -71,8 +71,14 @@ def main():
 		os.makedirs(out_dir, exist_ok=True)
 
 		processed = 0
-		for root, _, files in os.walk(input_dir):
+		out_dir_abs = os.path.abspath(out_dir)
+		for root, dirs, files in os.walk(input_dir):
+			# don't descend into the output directory if it's inside the input directory
+			dirs[:] = [d for d in dirs if not os.path.abspath(os.path.join(root, d)).startswith(out_dir_abs)]
 			for fname in files:
+				# skip files that are already normalized to avoid repeated processing
+				if fname.lower().endswith('_normalized.mp3'):
+					continue
 				if any(fname.lower().endswith('.' + ex) for ex in exts):
 					in_path = os.path.join(root, fname)
 					base = os.path.splitext(fname)[0]
